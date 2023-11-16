@@ -1,0 +1,21 @@
+<template>
+    <div class="slds-grid slds-gutters">
+        <div class="slds-col">
+            <lightning-input
+                type="text"
+                label="Search"
+                value={searchKeyword}
+                onchange={handleSearchChange}
+            ></lightning-input>
+        </div>
+        <div class="slds-col">
+            <lightning-combobox
+                name="searchField"
+                label="Search Field"
+                value={selectedField}
+                options={searchOptions}
+                onchange={handleFieldChange}
+            ></lightning-combobox>
+        </div>
+    </div>
+</template>
