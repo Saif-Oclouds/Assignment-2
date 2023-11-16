@@ -1,0 +1,31 @@
+<template>
+    <lightning-card title="Graduate Students List" icon-name="custom:custom63">
+        <div class="slds-var-m-around_medium">
+            <c-search-bar onsearchchange={handleSearchChange}></c-search-bar>
+            <table class="slds-table slds-table_bordered slds-table_cell-buffer">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Degree</th>
+                        <th>Action</th>
+                        
+                    </tr>
+                </thead>
+                <tbody>
+                    <template for:each={visibleGraduateStudents} for:item="student">
+                        <tr key={student.Id}>
+                            <td>{student.Name}</td>
+                            <td>{student.Degree__c}</td>
+                            <td>
+                                <lightning-button-icon icon-name="utility:delete" variant="bare" alternative-text="Delete" onclick={handleDeleteClick} data-id={student.Id}></lightning-button-icon>
+                            </td>
+                        </tr>
+                    </template>
+                </tbody>
+            </table>
+            <div slot="footer" class="slds-var-m-vertical_medium">
+                <c-pagination records={totalGraduateStudents} onupdate={updateGraduateStudentHandler}></c-pagination>
+            </div>
+        </div>
+    </lightning-card>
+</template>
